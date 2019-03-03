@@ -1,10 +1,14 @@
 version: 2
 
-docs-deploy:
+jobs:
+  docs-deploy:
     docker:
       - image: node:8.10.0
     steps:
       - checkout
+      - run:
+          name: Disable jekyll builds
+          command: touch docs/labs/developer-track/.nojekyll
       - run:
           name: Install and configure dependencies
           command: |
@@ -13,7 +17,17 @@ docs-deploy:
             git config user.name "ci-build"
       - add_ssh_keys:
           fingerprints:
-            - "58:ad:fd:64:71:eb:81:01:6a:d7:1a:c9:0c:19:39:af"
+            - "73:66:f1:32:15:93:8a:2a:e8:80:19:99:d0:0a:3c:c1"
       - run:
-          name: copy files
-          command: cp docs/labs /dist
+          name: Deploy docs to branch
+          command: gh-pages --branch "i8-developer" --dotfiles --message "[skip ci] Updates" --dist docs/labs/developer-track --dest walkthroughs
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - docs-deploy:
+          filters:
+            branches:
+              only: master
