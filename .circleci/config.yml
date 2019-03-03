@@ -21,6 +21,10 @@ jobs:
       - run:
           name: Deploy docs to branch
           command: gh-pages --branch "i8-developer" --dotfiles --message "[skip ci] Updates" --dist docs/labs/developer-track --dest walkthroughs
+      - run:
+          name: Deploy docs to branch
+          command: gh-pages --branch "i8-citizen" --dotfiles --message "[skip ci] Updates" --dist docs/labs/citizen-integrator-track
+ --dest walkthroughs
 
 
 workflows:
