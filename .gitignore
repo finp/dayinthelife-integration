@@ -17,6 +17,7 @@ LMSClass/
 build.metadata
 .metadata
 target/
+dist/
 .camel/
 lib/
 /.metadata/

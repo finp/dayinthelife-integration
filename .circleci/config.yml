@@ -1,0 +1,19 @@
+version: 2
+
+docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@example.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "58:ad:fd:64:71:eb:81:01:6a:d7:1a:c9:0c:19:39:af"
+      - run:
+          name: copy files
+          command: cp docs/labs /dist
