@@ -1,0 +1,36 @@
+version: 2
+
+jobs:
+  docs-deploy:
+    docker:
+      - image: node:8.10.0
+    steps:
+      - checkout
+      - run:
+          name: Disable jekyll builds
+          command: touch docs/labs/developer-track/.nojekyll
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install -g --silent gh-pages@2.0.1
+            git config user.email "ci-build@example.com"
+            git config user.name "ci-build"
+      - add_ssh_keys:
+          fingerprints:
+            - "73:66:f1:32:15:93:8a:2a:e8:80:19:99:d0:0a:3c:c1"
+      - run:
+          name: Deploy docs to branch
+          command: gh-pages --branch "i8-developer" --dotfiles --message "[skip ci] Updates" --dist docs/labs/developer-track --dest walkthroughs
+      - run:
+          name: Deploy docs to branch
+          command: gh-pages --branch "i8-citizen" --dotfiles --message "[skip ci] Updates" --dist docs/labs/citizen-integrator-track --dest walkthroughs
+
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - docs-deploy:
+          filters:
+            branches:
+              only: master
