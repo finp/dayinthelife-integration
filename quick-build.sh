@@ -1,5 +1,6 @@
 export DOC_DIR=docs
 export INDEX_DOC=index.adoc
+export NAV_DOC=docs/nav.adoc
 
 mkdir target
 mkdir target/modules
@@ -8,7 +9,7 @@ cp -Lr $DOC_DIR target/modules/ROOT/pages
 
 cp antora.yml target
 
-cp nav.adoc target/modules/ROOT/
+cp $NAV_DOC target/modules/ROOT/
 
 cp -Lr $INDEX_DOC target/modules/ROOT/pages
 

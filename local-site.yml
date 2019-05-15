@@ -1,5 +1,5 @@
 site:
-  title: DIL
+  title: Day in Life
   url: https://tpd
   start_page: dil::index 
 content:
