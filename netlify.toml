@@ -1,7 +1,7 @@
 [build]
   base = "netlify"
   publish = "build/site"
-  command = "node_modules/.bin/antora --html-url-extension-style=indexify --pull ../local-site.yml"
+  command = "./netlify-build"
 
 [build.environment]
   NODE_VERSION = "10"
