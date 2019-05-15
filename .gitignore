@@ -24,3 +24,4 @@ lib/
 *.retry
 .idea/
 build/
+node_modules/

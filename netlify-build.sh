@@ -14,4 +14,4 @@ cp $NAV_DOC target/modules/ROOT/
 cp -Lr $INDEX_DOC target/modules/ROOT/pages
 
 
-node_modules/.bin/antora --html-url-extension-style=indexify --pull ../local-site.yml
+node_modules/.bin/antora  ./local-site.yml
