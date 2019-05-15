@@ -1,0 +1,13 @@
+site:
+  title: DIL
+  url: https://tpd
+  start_page: dil::index 
+content:
+  sources:
+  - url: .
+    start_path: target
+    branches: HEAD
+ui:
+  bundle:
+    url: ./ui-bundle.zip
+    
