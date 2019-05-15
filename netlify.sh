@@ -1,4 +1,6 @@
 cd /opt/build/repo
+npm install
+
 export DOC_DIR=docs
 export INDEX_DOC=index.adoc
 export NAV_DOC=docs/nav.adoc
