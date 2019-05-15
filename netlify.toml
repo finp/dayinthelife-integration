@@ -1,7 +1,7 @@
 [build]
   base = "netlify"
   publish = "build/site"
-  command = "./netlify-build"
+  command = "./netlify-build.sh"
 
 [build.environment]
   NODE_VERSION = "10"
